@@ -1,0 +1,34 @@
+#!/bin/sh -e
+
+if [ -z "${GOPATH}" ]; then
+	echo "GOPATH must be set"
+	exit 1
+fi
+
+if [ $# -ne 1 ]; then
+	echo "usage: goven-bump pkg"
+	exit 1
+fi
+
+pkg=${1}
+root=${1}
+
+while [ ${root} != "." ]; do
+
+	gitdir="${GOPATH}/src/${root}/.git"
+	hgdir="${GOPATH}/src/${root}/.hg"
+
+	if [ -d "${hgdir}" ]; then
+		hg id -i -R ${root}
+		break
+	fi
+
+	if [ -d "${gitdir}" ]; then
+		git --git-dir="${gitdir}" rev-parse HEAD
+		break
+	fi
+
+	root=$(dirname "${root}")
+done
+
+goven -copy -rewrite -prefix="third_party" ${pkg}
