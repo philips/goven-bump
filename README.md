@@ -20,6 +20,7 @@ curl https://raw2.github.com/philips/goven-bump/master/bump-goven > ~/bin/bump-g
 ## Usage
 
 ```
+$ go get github.com/stretchr/testify/assert
 $ goven-bump github.com/stretchr/testify/assert
 9cc77fa25329013ce07362c7742952ff887361f2
 ```
