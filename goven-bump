@@ -16,10 +16,10 @@ root=${1}
 while [ ${root} != "." ]; do
 
 	gitdir="${GOPATH}/src/${root}/.git"
-	hgdir="${GOPATH}/src/${root}/.hg"
+	hgdir="${GOPATH}/src/${root}"
 
 	if [ -d "${hgdir}" ]; then
-		hg id -i -R ${root}
+		hg id -i -R $(dirname ${hgdir})
 		break
 	fi
 
