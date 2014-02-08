@@ -16,7 +16,7 @@ root=${1}
 while [ ${root} != "." ]; do
 
 	gitdir="${GOPATH}/src/${root}/.git"
-	hgdir="${GOPATH}/src/${root}"
+	hgdir="${GOPATH}/src/${root}/.hg"
 
 	if [ -d "${hgdir}" ]; then
 		hg id -i -R $(dirname ${hgdir})

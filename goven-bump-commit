@@ -1,0 +1,6 @@
+#!/bin/sh
+
+go get ${1}
+hash=$(goven-bump $1)
+git add .
+echo git commit -m "'bump(${1}): ${hash}'"
