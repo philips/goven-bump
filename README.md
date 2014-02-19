@@ -11,10 +11,10 @@ patch gets merged.
 go install github.com/philips/goven
 ```
 
-Install bump-goven into your PATH:
+Install goven-bump into your PATH:
 
 ```
-curl https://raw2.github.com/philips/goven-bump/master/bump-goven > ~/bin/bump-goven
+curl https://raw2.github.com/philips/goven-bump/master/goven-bump > ~/bin/goven-bump
 ```
 
 ## Usage
